@@ -23,9 +23,6 @@ export default function DashboardPage() {
         </div>
         <div className="flex gap-3">
           <Button variant="outline" size="sm">Download Report</Button>
-          <Link href="/chat">
-            <Button size="sm" className="bg-secondary hover:bg-secondary/90">New Query</Button>
-          </Link>
         </div>
       </div>
 
