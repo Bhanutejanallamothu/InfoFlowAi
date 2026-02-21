@@ -29,7 +29,7 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Initialize first message on client side only to avoid hydration mismatch
@@ -43,10 +43,9 @@ export default function ChatPage() {
   }, []);
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
-  }, [messages]);
+    // Smoothly scroll to the bottom whenever messages or loading state changes
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, isLoading]);
 
   const handleSend = async (e?: React.FormEvent) => {
     e?.preventDefault();
@@ -95,7 +94,7 @@ export default function ChatPage() {
       </div>
 
       <Card className="flex-1 flex flex-col overflow-hidden border shadow-2xl rounded-[32px] bg-white/50 backdrop-blur-sm">
-        <ScrollArea className="flex-1 p-4 md:p-8" ref={scrollRef}>
+        <ScrollArea className="flex-1 p-4 md:p-8">
           <div className="space-y-8 max-w-6xl mx-auto py-4">
             {messages.map((message, index) => (
               <div
@@ -140,6 +139,7 @@ export default function ChatPage() {
                 </div>
               </div>
             )}
+            <div ref={bottomRef} className="h-px w-full" />
           </div>
         </ScrollArea>
 
