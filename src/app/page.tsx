@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/layout/navbar";
 import { Button } from "@/components/ui/button";
 import { 
   ArrowRight, 
@@ -22,8 +21,6 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
-      
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative py-20 lg:py-32 overflow-hidden bg-white min-h-[85vh] flex items-center">
