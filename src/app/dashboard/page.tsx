@@ -37,7 +37,7 @@ export default function DashboardPage() {
     <div className="space-y-8 max-w-6xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h2 className="text-3xl font-bold font-headline tracking-tight text-primary">Welcome back, Alex</h2>
+          <h2 className="text-3xl font-bold font-headline tracking-tight text-primary">Welcome back</h2>
           <p className="text-muted-foreground">Here's what's happening in InfoFlow today.</p>
         </div>
         <div className="flex gap-3">
@@ -77,7 +77,7 @@ export default function DashboardPage() {
                 { user: "Jane Smith", action: "queried", detail: "Vacation Policy 2024", time: "10 mins ago" },
                 { user: "System", action: "indexed", detail: "Q3 Fiscal Report", time: "1 hour ago" },
                 { user: "Mark Doe", action: "downloaded", detail: "Employee Handbook", time: "3 hours ago" },
-                { user: "Alex Rivera", action: "queried", detail: "Expense Reimbursement", time: "5 hours ago" },
+                { user: "Admin", action: "queried", detail: "Expense Reimbursement", time: "5 hours ago" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center justify-between text-sm border-b pb-3 last:border-0 last:pb-0">
                   <div>
