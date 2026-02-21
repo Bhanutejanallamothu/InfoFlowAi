@@ -313,6 +313,7 @@ export function Navbar() {
     { label: "Home", href: "/" },
     { label: "Chat", href: "/chat" },
     { label: "History", href: "/history" },
+    { label: "Dashboard", href: "/dashboard" },
   ];
 
   const activeIndex = navLinks.findIndex(link => {
