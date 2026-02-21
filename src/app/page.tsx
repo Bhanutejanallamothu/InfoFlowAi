@@ -161,33 +161,66 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t py-12 bg-white relative z-10">
+      <footer className="border-t py-16 bg-white relative z-10">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="h-8 w-8 text-primary" />
-              <span className="font-bold font-headline text-xl text-primary tracking-tight">InfoFlow AI</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            {/* 1. Branding */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <ShieldCheck className="h-8 w-8 text-primary" />
+                <span className="font-bold font-headline text-2xl text-primary tracking-tight">InfoFlow AI</span>
+              </div>
+              <p className="text-sm font-semibold text-secondary italic">
+                "Intelligent Knowledge, Simplified."
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                An AI-powered internal knowledge assistant for modern organizations.
+              </p>
             </div>
-            <div className="flex gap-8 text-sm font-medium">
-              <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link>
-              <Link href="/chat" className="text-muted-foreground hover:text-primary transition-colors">Chat</Link>
-              <Link href="/history" className="text-muted-foreground hover:text-primary transition-colors">History</Link>
+
+            {/* 2. Quick Links */}
+            <div>
+              <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Quick Links</h4>
+              <ul className="space-y-3 text-sm">
+                <li><Link href="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link></li>
+                <li><Link href="/chat" className="text-muted-foreground hover:text-primary transition-colors">Chat</Link></li>
+                <li><Link href="/history" className="text-muted-foreground hover:text-primary transition-colors">History</Link></li>
+                <li><Link href="/login" className="text-muted-foreground hover:text-primary transition-colors">Login</Link></li>
+                <li><Link href="/signup" className="text-muted-foreground hover:text-primary transition-colors">Sign Up</Link></li>
+              </ul>
             </div>
-            <div className="flex gap-4">
-               <Link href="/login">
-                <Button variant="ghost" size="sm">Login</Button>
-              </Link>
-              <Link href="/signup">
-                <Button size="sm" className="bg-primary hover:bg-primary/90">Join Now</Button>
-              </Link>
+
+            {/* 3. Product / Features */}
+            <div>
+              <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Product</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="text-muted-foreground">Smart RAG Search</li>
+                <li className="text-muted-foreground">Secure Access</li>
+                <li className="text-muted-foreground">Document Management</li>
+                <li className="text-muted-foreground">AI Synthesis</li>
+              </ul>
+            </div>
+
+            {/* 4. Support / Help */}
+            <div>
+              <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Support</h4>
+              <ul className="space-y-3 text-sm">
+                <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
+                <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Documentation</Link></li>
+                <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link></li>
+                <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link></li>
+              </ul>
             </div>
           </div>
+
+          {/* 5. Bottom Line */}
           <div className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground">© 2024 InfoFlow AI. Enterprise Information Management.</p>
-            <div className="flex gap-6 text-xs text-muted-foreground">
-              <Link href="#" className="hover:text-primary">Privacy Policy</Link>
-              <Link href="#" className="hover:text-primary">Terms of Service</Link>
-              <Link href="#" className="hover:text-primary">Security</Link>
+            <p className="text-xs text-muted-foreground">
+              © 2026 InfoFlow AI. All rights reserved.
+            </p>
+            <div className="flex gap-6 text-[10px] text-muted-foreground/60 uppercase tracking-widest font-semibold">
+              <span>Secure Cloud Architecture</span>
+              <span>Enterprise Ready</span>
             </div>
           </div>
         </div>
