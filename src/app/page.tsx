@@ -1,6 +1,18 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Bot, Shield, Zap, ShieldCheck } from "lucide-react";
+import { 
+  ArrowRight, 
+  Bot, 
+  Shield, 
+  Zap, 
+  ShieldCheck, 
+  Database, 
+  Search, 
+  FileUp, 
+  History, 
+  Lock, 
+  CheckCircle 
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -50,15 +62,13 @@ export default function Home() {
                 priority
                 data-ai-hint="ai chatbot"
               />
-              {/* Gradient to fade from right to left for text clarity on the right side */}
               <div className="absolute inset-0 bg-gradient-to-l from-white via-white/70 to-transparent" />
-              {/* Gradient to fade into the next section */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
             </div>
           </div>
         </section>
 
-        {/* Features Section */}
+        {/* Features Pillars Section */}
         <section className="py-24 bg-slate-50 relative z-10">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 max-w-2xl mx-auto">
@@ -92,6 +102,58 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold font-headline mb-3 text-primary">{feature.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Key Features Grid Section */}
+        <section className="py-24 bg-white border-t">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16 max-w-2xl mx-auto">
+              <h2 className="text-4xl font-bold font-headline text-primary mb-4 tracking-tight">Key Features</h2>
+              <p className="text-muted-foreground text-lg">Designed to simplify internal knowledge access with precision and clarity.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {[
+                {
+                  title: "Centralized Knowledge Hub",
+                  description: "Access all internal documents and policies in one unified platform.",
+                  icon: Database
+                },
+                {
+                  title: "AI-Powered Search",
+                  description: "Ask natural language questions and receive context-aware responses.",
+                  icon: Search
+                },
+                {
+                  title: "Document Upload & Management",
+                  description: "Easily upload, organize, and manage internal files securely.",
+                  icon: FileUp
+                },
+                {
+                  title: "Conversation History",
+                  description: "View and revisit previous queries and responses anytime.",
+                  icon: History
+                },
+                {
+                  title: "Secure Access Control",
+                  description: "Role-based authentication for employees and administrators.",
+                  icon: Lock
+                },
+                {
+                  title: "Fast & Accurate Responses",
+                  description: "Optimized retrieval system ensuring reliable and relevant answers.",
+                  icon: CheckCircle
+                }
+              ].map((feature, i) => (
+                <div key={i} className="flex flex-col p-8 rounded-2xl border border-border bg-white hover:border-primary/20 transition-all shadow-sm hover:shadow-md">
+                  <div className="h-10 w-10 text-primary/60 mb-6">
+                    <feature.icon className="h-full w-full" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-lg font-bold font-headline mb-3 text-primary">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
                 </div>
               ))}
             </div>
