@@ -31,11 +31,11 @@ interface GooeyNavProps {
 const GooeyNav: React.FC<GooeyNavProps> = ({
   items,
   animationTime = 600,
-  particleCount = 12,
-  particleDistances = [70, 5],
-  particleR = 80,
-  timeVariance = 250,
-  colors = [1, 2, 3, 1, 2],
+  particleCount = 15,
+  particleDistances = [90, 10],
+  particleR = 100,
+  timeVariance = 300,
+  colors = [1, 2, 3, 1, 2, 3, 1, 4],
   initialActiveIndex = 0
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -82,12 +82,11 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         particle.style.setProperty('--time', `${p.time}ms`);
         particle.style.setProperty('--scale', `${p.scale}`);
         
-        // Map particle colors to theme colors
+        // Use secondary blue for particles to make them pop
         const themeColors = [
-          'hsl(var(--primary))',
           'hsl(var(--secondary))',
           'hsl(var(--accent))',
-          'hsl(var(--ring))'
+          'hsl(var(--primary))'
         ];
         const selectedColor = themeColors[p.color % themeColors.length];
         particle.style.setProperty('--color', selectedColor);
@@ -124,8 +123,6 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   };
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, index: number) => {
-    // If the click is on the active index, we don't need to do anything
-    // But we let the default link behavior happen
     if (activeIndex === index) return;
     
     const liEl = e.currentTarget.parentElement;
@@ -166,7 +163,6 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     return () => resizeObserver.disconnect();
   }, [activeIndex]);
 
-  // Sync index with route changes from outside
   useEffect(() => {
     if (initialActiveIndex !== activeIndex) {
       setActiveIndex(initialActiveIndex);
@@ -188,14 +184,15 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             place-items: center;
             z-index: 1;
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 700;
+            letter-spacing: -0.01em;
           }
           .effect.text {
             color: transparent;
             transition: color 0.3s ease;
           }
           .effect.text.active {
-            color: hsl(var(--primary-foreground));
+            color: hsl(var(--secondary-foreground));
           }
           .effect.filter {
             filter: blur(4px) contrast(20);
@@ -205,11 +202,12 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             content: "";
             position: absolute;
             inset: 0;
-            background: hsl(var(--primary));
+            background: hsl(var(--secondary));
             transform: scale(0);
             opacity: 0;
             z-index: -1;
             border-radius: 9999px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
           }
           .effect.active::after {
             animation: pill 0.3s ease both;
@@ -281,14 +279,14 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
               <li
                 key={index}
                 className={cn(
-                  "rounded-full relative cursor-pointer transition-colors duration-300 text-sm font-medium",
-                  activeIndex === index ? "active-pill text-transparent" : "text-muted-foreground hover:text-primary"
+                  "rounded-full relative cursor-pointer transition-colors duration-300 text-sm font-semibold",
+                  activeIndex === index ? "active-pill text-transparent" : "text-primary/70 hover:text-primary"
                 )}
               >
                 <Link
                   href={item.href}
                   onClick={e => handleClick(e as any, index)}
-                  className="outline-none py-2 px-4 inline-block"
+                  className="outline-none py-2 px-5 inline-block"
                 >
                   {item.label}
                 </Link>
@@ -323,14 +321,14 @@ export function Navbar() {
   });
 
   return (
-    <nav className="border-b bg-white/60 backdrop-blur-xl supports-[backdrop-filter]:bg-white/40 sticky top-0 z-50 w-full shadow-sm">
+    <nav className="border-b bg-white/70 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/50 sticky top-0 z-50 w-full shadow-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         {/* Left: Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0 z-10 hover:opacity-90 transition-opacity">
-          <div className="bg-primary p-1.5 rounded-lg shadow-sm shadow-primary/20">
-            <ShieldCheck className="h-5 w-5 text-white" />
+        <Link href="/" className="flex items-center gap-3 shrink-0 z-10 hover:opacity-90 transition-all group">
+          <div className="bg-primary p-2 rounded-xl shadow-lg shadow-primary/30 group-hover:scale-105 transition-transform">
+            <ShieldCheck className="h-6 w-6 text-white" />
           </div>
-          <span className="text-xl font-bold font-headline text-primary tracking-tight">InfoFlow AI</span>
+          <span className="text-2xl font-black font-headline text-primary tracking-tighter">InfoFlow AI</span>
         </Link>
 
         {/* Middle: Navigation Links (Desktop) */}
@@ -342,14 +340,14 @@ export function Navbar() {
         </div>
 
         {/* Right: Actions (Desktop) */}
-        <div className="hidden md:flex items-center gap-3 z-10">
+        <div className="hidden md:flex items-center gap-4 z-10">
           <Link href="/login">
-            <Button variant="ghost" size="sm" className="font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all">
+            <Button variant="ghost" size="sm" className="font-semibold text-primary/80 hover:text-primary hover:bg-primary/5 transition-all">
               Login
             </Button>
           </Link>
           <Link href="/signup">
-            <Button size="sm" className="bg-primary hover:bg-primary/90 font-medium px-6 shadow-md shadow-primary/10 transition-all active:scale-95">
+            <Button size="sm" className="bg-primary hover:bg-primary/90 font-bold px-7 shadow-xl shadow-primary/20 transition-all active:scale-95">
               Sign Up
             </Button>
           </Link>
@@ -367,15 +365,15 @@ export function Navbar() {
               <SheetContent side="right" className="w-[300px] border-l-0 shadow-2xl">
                 <div className="flex flex-col gap-8 mt-10">
                   <div className="flex flex-col gap-4">
-                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] px-2 mb-2">Navigation</p>
+                    <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] px-2 mb-2">Navigation</p>
                     {navLinks.map((link) => (
                       <Link 
                         key={link.href} 
                         href={link.href} 
                         className={cn(
-                          "text-lg font-semibold px-4 py-3 rounded-xl transition-all",
+                          "text-lg font-bold px-4 py-3 rounded-xl transition-all",
                           pathname === link.href 
-                            ? "text-primary bg-primary/5 shadow-sm" 
+                            ? "text-secondary bg-secondary/10 shadow-sm" 
                             : "text-muted-foreground hover:text-primary hover:bg-muted/50"
                         )}
                       >
@@ -385,10 +383,10 @@ export function Navbar() {
                   </div>
                   <div className="flex flex-col gap-3 pt-6 border-t mt-auto mb-10">
                     <Link href="/login" className="w-full">
-                      <Button variant="outline" className="w-full rounded-xl border-2">Login</Button>
+                      <Button variant="outline" className="w-full rounded-xl border-2 font-bold">Login</Button>
                     </Link>
                     <Link href="/signup" className="w-full">
-                      <Button className="w-full bg-primary rounded-xl shadow-lg shadow-primary/10">Sign Up</Button>
+                      <Button className="w-full bg-primary rounded-xl shadow-lg shadow-primary/20 font-bold">Sign Up</Button>
                     </Link>
                   </div>
                 </div>
