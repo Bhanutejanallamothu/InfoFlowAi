@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/Card';
 import { 
   Send, 
   Bot, 
@@ -88,10 +88,6 @@ export default function ChatPage() {
             </h2>
             <p className="text-sm text-muted-foreground">Connected to Company Knowledge Base</p>
           </div>
-          <Badge variant="outline" className="text-secondary bg-secondary/5 border-secondary/20 gap-2 flex items-center px-3 py-1">
-            <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-            RAG-Engine Online
-          </Badge>
         </div>
       </div>
 
