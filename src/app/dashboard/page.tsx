@@ -77,7 +77,9 @@ export default function DashboardPage() {
                 </div>
               ))}
             </div>
-            <Button variant="link" className="w-full mt-4 text-primary p-0">View all activity history</Button>
+            <Button variant="link" className="w-full mt-4 text-primary p-0" asChild>
+              <Link href="/history">View all activity history</Link>
+            </Button>
           </CardContent>
         </Card>
       </div>
