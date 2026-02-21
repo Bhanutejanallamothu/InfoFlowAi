@@ -20,7 +20,7 @@ export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen scroll-smooth">
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative py-20 lg:py-32 overflow-hidden bg-white min-h-[85vh] flex items-center">
@@ -39,7 +39,7 @@ export default function Home() {
                     Get Started <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
-                <Link href="/login">
+                <Link href="#features">
                   <Button size="lg" variant="outline" className="h-12 px-8">
                     Learn More
                   </Button>
@@ -66,7 +66,7 @@ export default function Home() {
         </section>
 
         {/* Features Pillars Section */}
-        <section className="py-24 bg-slate-50 relative z-10">
+        <section id="features" className="py-24 bg-slate-50 relative z-10 scroll-mt-16">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 max-w-2xl mx-auto">
               <h2 className="text-3xl font-bold font-headline text-primary mb-4 tracking-tight">Enterprise-Grade Knowledge Management</h2>
