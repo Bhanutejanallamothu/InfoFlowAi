@@ -9,17 +9,17 @@ import Link from 'next/link';
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4 py-12">
-      <Card className="w-full max-w-md border-slate-200 shadow-sm rounded-2xl overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-background px-4 py-12">
+      <Card className="w-full max-w-md border-border shadow-sm rounded-2xl overflow-hidden">
         <CardHeader className="space-y-4 text-center pt-10 pb-6">
-          <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-slate-900 text-white">
-            <ShieldCheck className="h-6 w-6" />
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/20">
+            <ShieldCheck className="h-7 w-7" />
           </div>
           <div className="space-y-1">
-            <CardTitle className="text-2xl font-bold tracking-tight text-slate-900 font-sans">
+            <CardTitle className="text-3xl font-bold tracking-tight text-primary font-headline">
               InfoFlow AI
             </CardTitle>
-            <CardDescription className="text-sm font-medium text-slate-500 font-sans">
+            <CardDescription className="text-sm font-medium text-muted-foreground">
               Internal Knowledge Assistant
             </CardDescription>
           </div>
@@ -27,42 +27,47 @@ export default function LoginPage() {
         <CardContent className="px-8 pb-8">
           <form className="space-y-5">
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-sm font-semibold text-slate-700">Email</Label>
+              <Label htmlFor="email" className="text-sm font-semibold text-foreground/80">Work Email</Label>
               <Input 
                 id="email" 
                 type="email" 
                 placeholder="name@company.com" 
                 required 
-                className="h-11 border-slate-200 focus-visible:ring-slate-900"
+                className="h-11 border-input focus-visible:ring-primary"
               />
             </div>
             <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <Label htmlFor="password" className="text-sm font-semibold text-slate-700">Password</Label>
-                <Link href="#" className="text-xs text-slate-500 hover:text-slate-900 font-medium">Forgot password?</Link>
+                <Label htmlFor="password" className="text-sm font-semibold text-foreground/80">Password</Label>
+                <Link href="#" className="text-xs text-muted-foreground hover:text-primary font-medium transition-colors">Forgot password?</Link>
               </div>
               <Input 
                 id="password" 
                 type="password" 
                 required 
-                className="h-11 border-slate-200 focus-visible:ring-slate-900"
+                className="h-11 border-input focus-visible:ring-primary"
               />
             </div>
             
             <Link href="/dashboard" className="block pt-2">
-              <Button className="w-full bg-slate-900 hover:bg-slate-800 text-white h-11 text-sm font-semibold transition-colors rounded-lg">
+              <Button className="w-full bg-primary hover:bg-primary/90 text-white h-11 text-sm font-bold transition-all shadow-md active:scale-[0.98]">
                 Secure Sign In
               </Button>
             </Link>
           </form>
         </CardContent>
         <CardFooter className="flex flex-col space-y-4 px-8 pb-10 pt-0 text-center">
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-muted-foreground">
             Don't have an account?{' '}
-            <Link href="/signup" className="text-slate-900 font-bold hover:underline underline-offset-4">
+            <Link href="/signup" className="text-primary font-bold hover:underline underline-offset-4">
               Sign up
             </Link>
           </p>
+          <div className="pt-4 border-t w-full">
+            <p className="text-[10px] text-muted-foreground/60 uppercase tracking-widest font-semibold">
+              Protected by enterprise-grade AI security
+            </p>
+          </div>
         </CardFooter>
       </Card>
     </div>

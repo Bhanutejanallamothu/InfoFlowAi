@@ -9,17 +9,17 @@ import Link from 'next/link';
 
 export default function SignupPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4 py-12">
-      <Card className="w-full max-w-md border-slate-200 shadow-sm rounded-2xl overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-background px-4 py-12">
+      <Card className="w-full max-w-md border-border shadow-sm rounded-2xl overflow-hidden">
         <CardHeader className="space-y-4 text-center pt-10 pb-6">
-          <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-slate-900 text-white">
-            <ShieldCheck className="h-6 w-6" />
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/20">
+            <ShieldCheck className="h-7 w-7" />
           </div>
           <div className="space-y-1">
-            <CardTitle className="text-2xl font-bold tracking-tight text-slate-900 font-sans">
+            <CardTitle className="text-3xl font-bold tracking-tight text-primary font-headline">
               InfoFlow AI
             </CardTitle>
-            <CardDescription className="text-sm font-medium text-slate-500 font-sans">
+            <CardDescription className="text-sm font-medium text-muted-foreground">
               Internal Knowledge Assistant
             </CardDescription>
           </div>
@@ -27,59 +27,64 @@ export default function SignupPage() {
         <CardContent className="px-8 pb-8">
           <form className="space-y-5">
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-sm font-semibold text-slate-700">Full Name</Label>
+              <Label htmlFor="name" className="text-sm font-semibold text-foreground/80">Full Name</Label>
               <Input 
                 id="name" 
                 type="text" 
                 placeholder="Alex Rivera" 
                 required 
-                className="h-11 border-slate-200 focus-visible:ring-slate-900"
+                className="h-11 border-input focus-visible:ring-primary"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-sm font-semibold text-slate-700">Work Email</Label>
+              <Label htmlFor="email" className="text-sm font-semibold text-foreground/80">Work Email</Label>
               <Input 
                 id="email" 
                 type="email" 
                 placeholder="name@company.com" 
                 required 
-                className="h-11 border-slate-200 focus-visible:ring-slate-900"
+                className="h-11 border-input focus-visible:ring-primary"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-sm font-semibold text-slate-700">Password</Label>
+              <Label htmlFor="password" className="text-sm font-semibold text-foreground/80">Password</Label>
               <Input 
                 id="password" 
                 type="password" 
                 required 
-                className="h-11 border-slate-200 focus-visible:ring-slate-900"
+                className="h-11 border-input focus-visible:ring-primary"
               />
-              <p className="text-[11px] text-slate-500 font-medium px-1">Must be at least 8 characters long.</p>
+              <p className="text-[11px] text-muted-foreground font-medium px-1">Must be at least 8 characters long.</p>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirm-password" className="text-sm font-semibold text-slate-700">Confirm Password</Label>
+              <Label htmlFor="confirm-password" className="text-sm font-semibold text-foreground/80">Confirm Password</Label>
               <Input 
                 id="confirm-password" 
                 type="password" 
                 required 
-                className="h-11 border-slate-200 focus-visible:ring-slate-900"
+                className="h-11 border-input focus-visible:ring-primary"
               />
             </div>
             
             <Link href="/dashboard" className="block pt-2">
-              <Button className="w-full bg-slate-900 hover:bg-slate-800 text-white h-11 text-sm font-semibold transition-colors rounded-lg">
+              <Button className="w-full bg-primary hover:bg-primary/90 text-white h-11 text-sm font-bold transition-all shadow-md active:scale-[0.98]">
                 Create Account
               </Button>
             </Link>
           </form>
         </CardContent>
         <CardFooter className="flex flex-col space-y-4 px-8 pb-10 pt-0 text-center">
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-muted-foreground">
             Already have an account?{' '}
-            <Link href="/login" className="text-slate-900 font-bold hover:underline underline-offset-4">
+            <Link href="/login" className="text-primary font-bold hover:underline underline-offset-4">
               Sign in
             </Link>
           </p>
+          <div className="pt-4 border-t w-full">
+            <p className="text-[10px] text-muted-foreground/60 uppercase tracking-widest font-semibold">
+              Protected by enterprise-grade AI security
+            </p>
+          </div>
         </CardFooter>
       </Card>
     </div>
