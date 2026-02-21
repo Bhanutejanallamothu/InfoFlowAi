@@ -145,11 +145,12 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
 
   useEffect(() => {
     if (!navRef.current || !containerRef.current) return;
-    const items = navRef.current.querySelectorAll('li');
-    const activeLi = items[activeIndex] as HTMLElement;
+    const itemsList = navRef.current.querySelectorAll('li');
+    const activeLi = itemsList[activeIndex] as HTMLElement;
     if (activeLi) {
       updateEffectPosition(activeLi);
       textRef.current?.classList.add('active');
+      filterRef.current?.classList.add('active');
     }
 
     const resizeObserver = new ResizeObserver(() => {
@@ -264,7 +265,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             }
           }
           li.active-pill {
-            color: transparent;
+            color: transparent !important;
           }
         `}
       </style>
@@ -279,7 +280,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
                 key={index}
                 className={cn(
                   "rounded-full relative cursor-pointer transition-colors duration-300 text-sm font-semibold",
-                  activeIndex === index ? "active-pill text-transparent" : "text-primary/80 hover:text-primary"
+                  activeIndex === index ? "active-pill" : "text-primary/80 hover:text-primary"
                 )}
               >
                 <Link
