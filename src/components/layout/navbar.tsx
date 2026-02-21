@@ -82,7 +82,6 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         particle.style.setProperty('--time', `${p.time}ms`);
         particle.style.setProperty('--scale', `${p.scale}`);
         
-        // Use secondary blue for particles to make them pop
         const themeColors = [
           'hsl(var(--secondary))',
           'hsl(var(--accent))',
@@ -280,7 +279,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
                 key={index}
                 className={cn(
                   "rounded-full relative cursor-pointer transition-colors duration-300 text-sm font-semibold",
-                  activeIndex === index ? "active-pill text-transparent" : "text-primary/70 hover:text-primary"
+                  activeIndex === index ? "active-pill text-transparent" : "text-primary/80 hover:text-primary"
                 )}
               >
                 <Link
