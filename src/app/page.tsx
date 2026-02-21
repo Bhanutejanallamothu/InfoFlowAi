@@ -34,7 +34,7 @@ export default function Home() {
                 InfoFlow AI connects your team to the information they need instantly. Upload documents, query policies, and get accurate answers using our secure RAG engine.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
-                <Link href="/chat">
+                <Link href="/login">
                   <Button size="lg" className="h-12 px-8 bg-primary hover:bg-primary/90 gap-2 shadow-lg shadow-primary/20">
                     Get Started <ArrowRight className="h-4 w-4" />
                   </Button>
