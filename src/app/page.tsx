@@ -16,8 +16,8 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative py-20 lg:py-32 overflow-hidden bg-white min-h-[85vh] flex items-center">
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center lg:text-left lg:mx-0 bg-white/40 backdrop-blur-sm p-8 rounded-3xl lg:bg-transparent lg:backdrop-blur-none lg:p-0">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-8">
+            <div className="max-w-4xl mx-auto text-center lg:text-right lg:ml-auto lg:mr-0 bg-white/40 backdrop-blur-sm p-8 rounded-3xl lg:bg-transparent lg:backdrop-blur-none lg:p-0">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-8 lg:ml-auto">
                 <Bot className="h-4 w-4" />
                 <span>Enterprise Knowledge Assistant</span>
               </div>
@@ -25,10 +25,10 @@ export default function Home() {
                 Unlock Your Team's <br />
                 <span className="text-secondary">Collective Intelligence.</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
+              <p className="text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed lg:ml-auto">
                 InfoFlow AI connects your team to the information they need instantly. Upload documents, query policies, and get accurate answers using our secure RAG engine.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
                 <Link href="/chat">
                   <Button size="lg" className="h-12 px-8 bg-primary hover:bg-primary/90 gap-2 shadow-lg shadow-primary/20">
                     Get Started <ArrowRight className="h-4 w-4" />
@@ -43,7 +43,7 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Background Image - Significantly more noticeable */}
+          {/* Background Image */}
           <div className="absolute top-0 right-0 w-full h-full select-none z-0">
             <div className="relative w-full h-full">
                <Image 
@@ -54,8 +54,8 @@ export default function Home() {
                 priority
                 data-ai-hint="ai chatbot"
               />
-              {/* Gradient to fade from left to right for text clarity */}
-              <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent" />
+              {/* Gradient to fade from right to left for text clarity on the right side */}
+              <div className="absolute inset-0 bg-gradient-to-l from-white via-white/70 to-transparent" />
               {/* Gradient to fade into the next section */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
             </div>
