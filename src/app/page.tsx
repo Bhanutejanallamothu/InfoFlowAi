@@ -161,64 +161,64 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t py-16 bg-white relative z-10">
+      <footer className="py-16 bg-primary text-primary-foreground relative z-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             {/* 1. Branding */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <ShieldCheck className="h-8 w-8 text-primary" />
-                <span className="font-bold font-headline text-2xl text-primary tracking-tight">InfoFlow AI</span>
+                <ShieldCheck className="h-8 w-8 text-secondary" />
+                <span className="font-bold font-headline text-2xl text-white tracking-tight">InfoFlow AI</span>
               </div>
               <p className="text-sm font-semibold text-secondary italic">
                 "Intelligent Knowledge, Simplified."
               </p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-primary-foreground/80 leading-relaxed">
                 An AI-powered internal knowledge assistant for modern organizations.
               </p>
             </div>
 
             {/* 2. Quick Links */}
             <div>
-              <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Quick Links</h4>
+              <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-xs">Quick Links</h4>
               <ul className="space-y-3 text-sm">
-                <li><Link href="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link></li>
-                <li><Link href="/chat" className="text-muted-foreground hover:text-primary transition-colors">Chat</Link></li>
-                <li><Link href="/history" className="text-muted-foreground hover:text-primary transition-colors">History</Link></li>
-                <li><Link href="/login" className="text-muted-foreground hover:text-primary transition-colors">Login</Link></li>
-                <li><Link href="/signup" className="text-muted-foreground hover:text-primary transition-colors">Sign Up</Link></li>
+                <li><Link href="/" className="text-primary-foreground/70 hover:text-white transition-colors">Home</Link></li>
+                <li><Link href="/chat" className="text-primary-foreground/70 hover:text-white transition-colors">Chat</Link></li>
+                <li><Link href="/history" className="text-primary-foreground/70 hover:text-white transition-colors">History</Link></li>
+                <li><Link href="/login" className="text-primary-foreground/70 hover:text-white transition-colors">Login</Link></li>
+                <li><Link href="/signup" className="text-primary-foreground/70 hover:text-white transition-colors">Sign Up</Link></li>
               </ul>
             </div>
 
             {/* 3. Product / Features */}
             <div>
-              <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Product</h4>
+              <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-xs">Product</h4>
               <ul className="space-y-3 text-sm">
-                <li className="text-muted-foreground">Smart RAG Search</li>
-                <li className="text-muted-foreground">Secure Access</li>
-                <li className="text-muted-foreground">Document Management</li>
-                <li className="text-muted-foreground">AI Synthesis</li>
+                <li className="text-primary-foreground/70">Smart RAG Search</li>
+                <li className="text-primary-foreground/70">Secure Access</li>
+                <li className="text-primary-foreground/70">Document Management</li>
+                <li className="text-primary-foreground/70">AI Synthesis</li>
               </ul>
             </div>
 
             {/* 4. Support / Help */}
             <div>
-              <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Support</h4>
+              <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-xs">Support</h4>
               <ul className="space-y-3 text-sm">
-                <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
-                <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Documentation</Link></li>
-                <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link></li>
-                <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link></li>
+                <li><Link href="#" className="text-primary-foreground/70 hover:text-white transition-colors">Contact</Link></li>
+                <li><Link href="#" className="text-primary-foreground/70 hover:text-white transition-colors">Documentation</Link></li>
+                <li><Link href="#" className="text-primary-foreground/70 hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="#" className="text-primary-foreground/70 hover:text-white transition-colors">Terms of Service</Link></li>
               </ul>
             </div>
           </div>
 
           {/* 5. Bottom Line */}
-          <div className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-muted-foreground">
+          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-primary-foreground/60">
               © 2026 InfoFlow AI. All rights reserved.
             </p>
-            <div className="flex gap-6 text-[10px] text-muted-foreground/60 uppercase tracking-widest font-semibold">
+            <div className="flex gap-6 text-[10px] text-primary-foreground/40 uppercase tracking-widest font-semibold">
               <span>Secure Cloud Architecture</span>
               <span>Enterprise Ready</span>
             </div>
