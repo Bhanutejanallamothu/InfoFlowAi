@@ -1,7 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MessageSquare, Calendar, ChevronRight, User, Bot, Search } from "lucide-react";
+import { MessageSquare, Calendar, ChevronRight, User, Bot, Search, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 const historySessions = [
   { 
@@ -40,15 +41,23 @@ const historySessions = [
 
 export default function HistoryPage() {
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-          <h2 className="text-2xl font-bold font-headline text-primary">Conversation History</h2>
-          <p className="text-sm text-muted-foreground">Review and revisit your previous interactions with InfoFlow AI.</p>
-        </div>
-        <div className="relative w-full md:w-72">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input placeholder="Search past sessions..." className="pl-9" />
+    <div className="space-y-6 max-w-6xl mx-auto">
+      <div className="flex flex-col gap-4">
+        <Link href="/dashboard" className="w-fit">
+          <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-primary pl-0 h-8">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Dashboard
+          </Button>
+        </Link>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div>
+            <h2 className="text-3xl font-bold font-headline text-primary">Conversation History</h2>
+            <p className="text-sm text-muted-foreground">Review and revisit your previous interactions with InfoFlow AI.</p>
+          </div>
+          <div className="relative w-full md:w-72">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input placeholder="Search past sessions..." className="pl-9" />
+          </div>
         </div>
       </div>
 
