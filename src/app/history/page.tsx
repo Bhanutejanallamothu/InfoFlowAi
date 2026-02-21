@@ -180,14 +180,6 @@ export default function HistoryPage() {
                           </div>
                           <div className="flex justify-between items-center text-sm">
                             <span className="text-muted-foreground flex items-center gap-2">
-                              <Clock className="h-3.5 w-3.5" /> Status
-                            </span>
-                            <Badge variant="outline" className="text-green-600 bg-green-50 border-green-200 text-[10px] font-bold h-5 uppercase">
-                              {session.status}
-                            </Badge>
-                          </div>
-                          <div className="flex justify-between items-center text-sm">
-                            <span className="text-muted-foreground flex items-center gap-2">
                               <Cpu className="h-3.5 w-3.5" /> Token Usage
                             </span>
                             <span className="font-mono font-bold text-primary/70">{session.tokens}</span>
