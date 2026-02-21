@@ -99,11 +99,6 @@ export default function DashboardPage() {
                 <div className="bg-secondary h-2 rounded-full" style={{ width: '88%' }}></div>
               </div>
             </div>
-            <Link href="/documents" className="block pt-2">
-              <Button className="w-full bg-white text-primary hover:bg-white/90 font-semibold">
-                Manage Knowledge Base
-              </Button>
-            </Link>
           </CardContent>
           <div className="absolute -bottom-6 -right-6 opacity-10">
             <TrendingUp className="h-32 w-32" />

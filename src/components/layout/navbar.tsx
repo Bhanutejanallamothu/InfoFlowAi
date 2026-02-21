@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -314,7 +313,6 @@ export function Navbar() {
     { label: "Home", href: "/" },
     { label: "Chat", href: "/chat" },
     { label: "History", href: "/history" },
-    { label: "Documents", href: "/documents" },
     { label: "Dashboard", href: "/dashboard" },
   ];
 
