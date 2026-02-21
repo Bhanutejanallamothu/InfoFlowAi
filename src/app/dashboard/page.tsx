@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Users, 
@@ -7,8 +9,25 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useToast } from "@/hooks/use-toast";
 
 export default function DashboardPage() {
+  const { toast } = useToast();
+
+  const handleDownload = () => {
+    toast({
+      title: "Downloading...",
+      description: "Your enterprise report is being generated and prepared for download.",
+    });
+
+    setTimeout(() => {
+      toast({
+        title: "Downloaded",
+        description: "Your report has been successfully downloaded to your device.",
+      });
+    }, 5000);
+  };
+
   const stats = [
     { name: "Active Employees", value: "342", icon: Users, change: "+5%", trend: "up" },
     { name: "Response Accuracy", value: "98.2%", icon: TrendingUp, change: "+0.4%", trend: "up" },
@@ -22,7 +41,7 @@ export default function DashboardPage() {
           <p className="text-muted-foreground">Here's what's happening in InfoFlow today.</p>
         </div>
         <div className="flex gap-3">
-          <Button variant="outline" size="sm">Download Report</Button>
+          <Button variant="outline" size="sm" onClick={handleDownload}>Download Report</Button>
         </div>
       </div>
 
