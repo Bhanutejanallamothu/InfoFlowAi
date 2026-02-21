@@ -14,7 +14,7 @@ export default function Home() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-20 lg:py-32 overflow-hidden bg-white">
+        <section className="relative py-20 lg:py-32 overflow-hidden bg-white min-h-[80vh] flex items-center">
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center lg:text-left lg:mx-0">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-8">
@@ -43,24 +43,25 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block select-none">
+          {/* Background Image with improved prominence */}
+          <div className="absolute top-0 right-0 w-full h-full select-none z-0">
             <div className="relative w-full h-full">
                <Image 
-                src={heroImage?.imageUrl || "https://picsum.photos/seed/hero/1200/800"} 
-                alt="Corporate background"
+                src={heroImage?.imageUrl || "https://ik.imagekit.io/z5fowzj2wr/chatbot-ai.jpg"} 
+                alt="AI Assistant background"
                 fill
-                className="object-cover opacity-10"
+                className="object-cover opacity-20"
                 priority
-                data-ai-hint="corporate background"
+                data-ai-hint="ai chatbot"
               />
-              <div className="absolute inset-0 bg-gradient-to-l from-white via-white/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-slate-50" />
             </div>
           </div>
         </section>
 
         {/* Features Section */}
-        <section className="py-24 bg-slate-50">
+        <section className="py-24 bg-slate-50 relative z-10">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 max-w-2xl mx-auto">
               <h2 className="text-3xl font-bold font-headline text-primary mb-4 tracking-tight">Enterprise-Grade Knowledge Management</h2>
@@ -100,7 +101,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t py-12 bg-white">
+      <footer className="border-t py-12 bg-white relative z-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
             <div className="flex items-center gap-2">
