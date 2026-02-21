@@ -10,8 +10,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        body: ['var(--font-inter)', 'sans-serif'],
+        headline: ['var(--font-playfair)', 'serif'],
+        serif: ['var(--font-playfair)', 'serif'],
         code: ['monospace'],
       },
       colors: {
