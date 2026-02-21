@@ -24,13 +24,13 @@ export function Navbar() {
     <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Left: Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        <Link href="/" className="flex items-center gap-2 shrink-0 z-10">
           <ShieldCheck className="h-6 w-6 text-primary" />
           <span className="text-xl font-bold font-headline text-primary tracking-tight">InfoFlow AI</span>
         </Link>
 
         {/* Middle: Navigation Links (Desktop) */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -48,7 +48,7 @@ export function Navbar() {
         </div>
 
         {/* Right: Actions (Desktop) */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-3 z-10">
           <Link href="/login">
             <Button variant="ghost" size="sm" className="font-medium">Login</Button>
           </Link>
