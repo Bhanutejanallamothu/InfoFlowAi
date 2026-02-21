@@ -1,12 +1,21 @@
+"use client";
+
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/sidebar";
 import { DashboardSidebar } from "@/components/layout/dashboard-sidebar";
 import { Separator } from "@/components/ui/separator";
+import { useState, useEffect } from "react";
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [currentDate, setCurrentDate] = useState<string>("");
+
+  useEffect(() => {
+    setCurrentDate(new Date().toLocaleDateString());
+  }, []);
+
   return (
     <SidebarProvider>
       <DashboardSidebar />
@@ -17,9 +26,11 @@ export default function DashboardLayout({
           <div className="flex-1">
             <h1 className="text-lg font-semibold text-primary font-headline">Enterprise Dashboard</h1>
           </div>
-          <div className="text-xs text-muted-foreground hidden sm:block">
-            Last updated: {new Date().toLocaleDateString()}
-          </div>
+          {currentDate && (
+            <div className="text-xs text-muted-foreground hidden sm:block">
+              Last updated: {currentDate}
+            </div>
+          )}
         </header>
         <main className="p-6 overflow-auto">
           {children}

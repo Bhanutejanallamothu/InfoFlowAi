@@ -10,9 +10,15 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
 
 export function Navbar() {
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -59,40 +65,42 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         <div className="md:hidden flex items-center">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-primary">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col gap-8 mt-10">
-                <div className="flex flex-col gap-4">
-                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Navigation</p>
-                  {navLinks.map((link) => (
-                    <Link 
-                      key={link.href} 
-                      href={link.href} 
-                      className={cn(
-                        "text-lg font-medium transition-colors",
-                        pathname === link.href ? "text-primary" : "text-muted-foreground hover:text-primary"
-                      )}
-                    >
-                      {link.name}
+          {mounted && (
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-primary">
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <div className="flex flex-col gap-8 mt-10">
+                  <div className="flex flex-col gap-4">
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Navigation</p>
+                    {navLinks.map((link) => (
+                      <Link 
+                        key={link.href} 
+                        href={link.href} 
+                        className={cn(
+                          "text-lg font-medium transition-colors",
+                          pathname === link.href ? "text-primary" : "text-muted-foreground hover:text-primary"
+                        )}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="flex flex-col gap-3 pt-6 border-t">
+                    <Link href="/login" className="w-full">
+                      <Button variant="outline" className="w-full">Login</Button>
                     </Link>
-                  ))}
+                    <Link href="/signup" className="w-full">
+                      <Button className="w-full bg-primary">Sign Up</Button>
+                    </Link>
+                  </div>
                 </div>
-                <div className="flex flex-col gap-3 pt-6 border-t">
-                  <Link href="/login" className="w-full">
-                    <Button variant="outline" className="w-full">Login</Button>
-                  </Link>
-                  <Link href="/signup" className="w-full">
-                    <Button className="w-full bg-primary">Sign Up</Button>
-                  </Link>
-                </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          )}
         </div>
       </div>
     </nav>

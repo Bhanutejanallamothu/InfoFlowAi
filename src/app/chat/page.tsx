@@ -25,16 +25,21 @@ interface Message {
 }
 
 export default function ChatPage() {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: 'assistant',
-      content: "Hello! I'm InfoFlow AI, your corporate knowledge assistant. Ask me anything about company policies, reports, or procedures.",
-      timestamp: new Date(),
-    }
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Initialize first message on client side only to avoid hydration mismatch
+    setMessages([
+      {
+        role: 'assistant',
+        content: "Hello! I'm InfoFlow AI, your corporate knowledge assistant. Ask me anything about company policies, reports, or procedures.",
+        timestamp: new Date(),
+      }
+    ]);
+  }, []);
 
   useEffect(() => {
     if (scrollRef.current) {
