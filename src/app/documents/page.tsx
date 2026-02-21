@@ -13,14 +13,11 @@ import {
   TableRow 
 } from '@/components/ui/table';
 import { 
-  Plus, 
   Search, 
   FileText, 
   MoreVertical, 
-  CloudUpload,
   Download,
-  Trash2,
-  Filter
+  Trash2
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -55,10 +52,6 @@ export default function DocumentsPage() {
           <h2 className="text-2xl font-bold font-headline text-primary">Knowledge Base</h2>
           <p className="text-sm text-muted-foreground">Manage internal documents used for AI context.</p>
         </div>
-        <Button className="bg-secondary hover:bg-secondary/90 shadow-sm">
-          <CloudUpload className="mr-2 h-4 w-4" />
-          Upload Document
-        </Button>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
@@ -146,31 +139,6 @@ export default function DocumentsPage() {
         </Card>
 
         <div className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg font-headline">Storage Usage</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex justify-between items-end">
-                <span className="text-2xl font-bold">12.4 GB</span>
-                <span className="text-xs text-muted-foreground">of 50 GB used</span>
-              </div>
-              <div className="w-full bg-muted rounded-full h-2.5">
-                <div className="bg-primary h-2.5 rounded-full" style={{ width: '25%' }}></div>
-              </div>
-              <div className="grid grid-cols-2 gap-2 pt-2">
-                <div className="p-3 bg-muted/30 rounded-lg">
-                  <span className="text-[10px] text-muted-foreground block">PDF Documents</span>
-                  <span className="font-semibold text-sm">8.2 GB</span>
-                </div>
-                <div className="p-3 bg-muted/30 rounded-lg">
-                  <span className="text-[10px] text-muted-foreground block">Others</span>
-                  <span className="font-semibold text-sm">4.2 GB</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
           <Card className="bg-secondary/5 border-secondary/20">
             <CardHeader>
               <CardTitle className="text-lg font-headline text-secondary">System Health</CardTitle>
