@@ -54,14 +54,14 @@ export default function DocumentsPage() {
         </div>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
-        <Card className="md:col-span-2">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0">
+      <div className="grid gap-6">
+        <Card className="w-full">
+          <CardHeader className="flex flex-col md:flex-row items-start md:items-center justify-between space-y-4 md:space-y-0">
             <div className="space-y-1">
               <CardTitle className="text-lg font-headline">Internal Documents</CardTitle>
               <CardDescription>A list of all documents currently indexed in the system.</CardDescription>
             </div>
-            <div className="relative w-full max-w-sm ml-4">
+            <div className="relative w-full max-w-sm">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input 
                 placeholder="Search documents..." 
@@ -91,7 +91,7 @@ export default function DocumentsPage() {
                           <FileText className="h-4 w-4 text-primary" />
                         </div>
                         <div className="flex flex-col">
-                          <span className="truncate max-w-[150px] sm:max-w-[200px]">{doc.name}</span>
+                          <span className="truncate max-w-[150px] sm:max-w-[200px] md:max-w-none">{doc.name}</span>
                           <span className="text-[10px] text-muted-foreground sm:hidden">Size: {doc.size}</span>
                         </div>
                       </div>
@@ -137,26 +137,6 @@ export default function DocumentsPage() {
             )}
           </CardContent>
         </Card>
-
-        <div className="space-y-6">
-          <Card className="bg-secondary/5 border-secondary/20">
-            <CardHeader>
-              <CardTitle className="text-lg font-headline text-secondary">System Health</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {[
-                { label: "Indexer Latency", value: "Normal (2s)" },
-                { label: "Embedding Engine", value: "Online" },
-                { label: "Vector DB Sync", value: "1 min ago" },
-              ].map((item, i) => (
-                <div key={i} className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">{item.label}</span>
-                  <span className="font-medium">{item.value}</span>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </div>
   );
