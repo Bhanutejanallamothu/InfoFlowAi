@@ -193,9 +193,6 @@ export default function HistoryPage() {
                             <span className="font-mono font-bold text-primary/70">{session.tokens}</span>
                           </div>
                         </div>
-                        <Button className="w-full h-10 rounded-xl bg-primary text-white font-bold text-xs uppercase tracking-widest shadow-lg shadow-primary/20 hover:bg-primary/90">
-                          Reopen This Chat
-                        </Button>
                       </div>
                     </div>
                   </div>
@@ -210,35 +207,6 @@ export default function HistoryPage() {
             <p className="text-sm mt-1">Try adjusting your search terms to find what you're looking for.</p>
           </div>
         )}
-      </div>
-
-      <div className="mt-12">
-        <h3 className="text-xl font-bold font-headline mb-5 flex items-center gap-2 text-primary/80">
-          <Clock className="h-5 w-5" />
-          System Audit Logs
-        </h3>
-        <Card className="rounded-[24px] overflow-hidden shadow-sm">
-          <CardContent className="p-0">
-            <div className="divide-y text-xs">
-              {[
-                { time: "Today, 14:20", event: "Chat Session #182 started", user: "Alex Rivera", ip: "10.0.4.12" },
-                { time: "Today, 09:15", event: "System Backup Successful", user: "System", ip: "10.0.0.1" },
-                { time: "Yesterday, 17:45", event: "Document Indexing Completed", user: "Alex Rivera", ip: "10.0.4.12" },
-              ].map((log, i) => (
-                <div key={i} className="p-4 flex justify-between items-center text-muted-foreground hover:bg-muted/30 transition-colors">
-                  <div className="flex items-center gap-6">
-                    <span className="w-24 shrink-0 font-bold opacity-70 uppercase tracking-tighter">{log.time}</span>
-                    <span className="font-semibold text-foreground/80">{log.event}</span>
-                  </div>
-                  <div className="flex items-center gap-6 hidden sm:flex">
-                    <span className="bg-primary/5 px-2 py-0.5 rounded text-primary/70 font-bold">{log.user}</span>
-                    <span className="font-mono opacity-50">{log.ip}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </div>
   );
