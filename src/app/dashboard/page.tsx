@@ -1,7 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
-  FileText, 
-  MessageSquare, 
   Users, 
   TrendingUp,
   Clock,
@@ -12,8 +10,6 @@ import Link from "next/link";
 
 export default function DashboardPage() {
   const stats = [
-    { name: "Knowledge Assets", value: "1,248", icon: FileText, change: "+12%", trend: "up" },
-    { name: "Total Queries", value: "8,521", icon: MessageSquare, change: "+18%", trend: "up" },
     { name: "Active Employees", value: "342", icon: Users, change: "+5%", trend: "up" },
     { name: "Response Accuracy", value: "98.2%", icon: TrendingUp, change: "+0.4%", trend: "up" },
   ];
@@ -33,7 +29,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
         {stats.map((stat) => (
           <Card key={stat.name} className="shadow-sm hover:shadow-md transition-shadow">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
