@@ -17,10 +17,6 @@ export default function Home() {
         <section className="relative py-20 lg:py-32 overflow-hidden bg-white min-h-[85vh] flex items-center">
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center lg:text-right lg:ml-auto lg:mr-0 bg-white/40 backdrop-blur-sm p-8 rounded-3xl lg:bg-transparent lg:backdrop-blur-none lg:p-0">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-8 lg:ml-auto">
-                <Bot className="h-4 w-4" />
-                <span>Enterprise Knowledge Assistant</span>
-              </div>
               <h1 className="text-5xl lg:text-7xl font-bold font-headline leading-tight text-primary mb-6 tracking-tight">
                 Unlock Your Team's <br />
                 <span className="text-secondary">Collective Intelligence.</span>
