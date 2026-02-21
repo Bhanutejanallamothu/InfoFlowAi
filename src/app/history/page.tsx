@@ -1,8 +1,11 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MessageSquare, Calendar, ChevronRight, User, Bot, Search, ArrowLeft } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { MessageSquare, Calendar, ChevronRight, Search, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const historySessions = [
   { 
@@ -40,15 +43,27 @@ const historySessions = [
 ];
 
 export default function HistoryPage() {
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredSessions = historySessions.filter((session) =>
+    session.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    session.preview.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    session.category.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="space-y-6 max-w-6xl mx-auto">
       <div className="flex flex-col gap-4">
-        <Link href="/dashboard" className="w-fit">
-          <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-primary pl-0 h-8">
-            <ArrowLeft className="h-4 w-4" />
-            Back to Dashboard
-          </Button>
-        </Link>
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          className="w-fit gap-2 text-muted-foreground hover:text-primary pl-0 h-8"
+          onClick={() => router.back()}
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back
+        </Button>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <h2 className="text-3xl font-bold font-headline text-primary">Conversation History</h2>
@@ -56,37 +71,49 @@ export default function HistoryPage() {
           </div>
           <div className="relative w-full md:w-72">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input placeholder="Search past sessions..." className="pl-9" />
+            <Input 
+              placeholder="Search past sessions..." 
+              className="pl-9" 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </div>
         </div>
       </div>
 
       <div className="grid gap-4">
-        {historySessions.map((session) => (
-          <Card key={session.id} className="hover:border-secondary transition-all cursor-pointer group">
-            <CardContent className="p-4 flex items-center gap-4">
-              <div className="h-12 w-12 rounded-full bg-primary/5 flex items-center justify-center shrink-0 group-hover:bg-primary/10">
-                <MessageSquare className="h-6 w-6 text-primary" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex flex-wrap items-center gap-2 mb-1">
-                  <h3 className="font-semibold text-base font-headline truncate">{session.title}</h3>
-                  <span className="text-[10px] bg-muted px-2 py-0.5 rounded-full text-muted-foreground">{session.category}</span>
+        {filteredSessions.length > 0 ? (
+          filteredSessions.map((session) => (
+            <Card key={session.id} className="hover:border-secondary transition-all cursor-pointer group">
+              <CardContent className="p-4 flex items-center gap-4">
+                <div className="h-12 w-12 rounded-full bg-primary/5 flex items-center justify-center shrink-0 group-hover:bg-primary/10">
+                  <MessageSquare className="h-6 w-6 text-primary" />
                 </div>
-                <p className="text-sm text-muted-foreground truncate italic">"{session.preview}"</p>
-                <div className="flex items-center gap-4 mt-2 text-[10px] text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <Calendar className="h-3 w-3" /> {session.date}
-                  </span>
-                  <span>{session.tokens} tokens used</span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
+                    <h3 className="font-semibold text-base font-headline truncate">{session.title}</h3>
+                    <span className="text-[10px] bg-muted px-2 py-0.5 rounded-full text-muted-foreground">{session.category}</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground truncate italic">"{session.preview}"</p>
+                  <div className="flex items-center gap-4 mt-2 text-[10px] text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Calendar className="h-3 w-3" /> {session.date}
+                    </span>
+                    <span>{session.tokens} tokens used</span>
+                  </div>
                 </div>
-              </div>
-              <Button variant="ghost" size="icon" className="shrink-0 group-hover:text-secondary group-hover:translate-x-1 transition-transform">
-                <ChevronRight className="h-5 w-5" />
-              </Button>
-            </CardContent>
-          </Card>
-        ))}
+                <Button variant="ghost" size="icon" className="shrink-0 group-hover:text-secondary group-hover:translate-x-1 transition-transform">
+                  <ChevronRight className="h-5 w-5" />
+                </Button>
+              </CardContent>
+            </Card>
+          ))
+        ) : (
+          <div className="py-20 text-center text-muted-foreground">
+            <Search className="h-12 w-12 mx-auto mb-4 opacity-20" />
+            <p>No conversations found matching "{searchQuery}"</p>
+          </div>
+        )}
       </div>
 
       <div className="mt-8">
