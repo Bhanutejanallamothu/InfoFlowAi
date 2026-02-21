@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { employeeKnowledgeQuery } from '@/ai/flows/employee-knowledge-query-flow';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -25,6 +25,7 @@ interface Message {
 }
 
 export default function ChatPage() {
+  const router = useRouter();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -73,12 +74,15 @@ export default function ChatPage() {
   return (
     <div className="flex flex-col h-[calc(100vh-7rem)] max-w-screen-2xl mx-auto px-4 transition-all duration-300">
       <div className="mb-3 flex flex-col gap-1">
-        <Link href="/dashboard" className="w-fit">
-          <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-primary pl-0 h-8">
-            <ArrowLeft className="h-4 w-4" />
-            Back to Dashboard
-          </Button>
-        </Link>
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          className="gap-2 text-muted-foreground hover:text-primary pl-0 h-8 w-fit"
+          onClick={() => router.back()}
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back
+        </Button>
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-2xl font-bold font-headline text-primary flex items-center gap-3">
