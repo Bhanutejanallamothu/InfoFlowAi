@@ -19,7 +19,7 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 max-w-6xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h2 className="text-3xl font-bold font-headline tracking-tight text-primary">Welcome back, Alex</h2>
@@ -51,7 +51,7 @@ export default function DashboardPage() {
         ))}
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6">
         <Card>
           <CardHeader>
             <CardTitle className="text-xl font-headline flex items-center gap-2">
@@ -79,30 +79,6 @@ export default function DashboardPage() {
             </div>
             <Button variant="link" className="w-full mt-4 text-primary p-0">View all activity history</Button>
           </CardContent>
-        </Card>
-
-        <Card className="bg-primary text-primary-foreground overflow-hidden relative">
-          <CardHeader>
-            <CardTitle className="text-xl font-headline">Intelligence Overview</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-primary-foreground/80 text-sm">
-              InfoFlow AI has successfully processed <span className="font-bold text-white">42 new documents</span> this week.
-              Your most frequent queries are related to <span className="font-bold text-white">Compliance</span> and <span className="font-bold text-white">Employee Benefits</span>.
-            </p>
-            <div className="pt-4 space-y-2">
-              <div className="flex justify-between text-xs mb-1">
-                <span>Knowledge Base Coverage</span>
-                <span>88%</span>
-              </div>
-              <div className="w-full bg-primary-foreground/20 rounded-full h-2">
-                <div className="bg-secondary h-2 rounded-full" style={{ width: '88%' }}></div>
-              </div>
-            </div>
-          </CardContent>
-          <div className="absolute -bottom-6 -right-6 opacity-10">
-            <TrendingUp className="h-32 w-32" />
-          </div>
         </Card>
       </div>
     </div>
