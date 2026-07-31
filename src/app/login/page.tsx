@@ -26,7 +26,7 @@ export default function LoginPage() {
           </div>
           <div className="space-y-1">
             <CardTitle className="text-3xl font-bold tracking-tight text-primary font-headline">
-              InfoFlow AI
+              InfoFlow-AI
             </CardTitle>
             <CardDescription className="text-sm font-medium text-muted-foreground">
               Internal Knowledge Assistant
